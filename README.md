@@ -1,70 +1,128 @@
-# Getting Started with Create React App
+# MYJOBS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a job portal, Where you can create/search about various jobs.
 
-## Available Scripts
+## Tech Stack
 
-In the project directory, you can run:
+**Client:** React, TailwindCSS
 
-### `yarn start`
+**Icons :** Font Awesome
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Back end data from :** API
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+**API from:** : Provided by Squarebot
 
-### `yarn test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Install my-project with npm
 
-### `yarn build`
+```bash
+  cd myjob
+  npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Run Locally
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Clone the project
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+  git clone https://github.com/drashish77/myjobs
+```
 
-### `yarn eject`
+Go to the project directory
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+  cd myjob
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Install dependencies
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+  npm install
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Start the server
 
-## Learn More
+```bash
+  npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Deployment
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To deploy this project run
 
-### Code Splitting
+### Deployed commands
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+`npm run predeploy`
+`npm run deploy`
+```
 
-### Analyzing the Bundle Size
+## Deployement
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The challange deployed using github-pages npm package
 
-### Making a Progressive Web App
+### URL
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+https://drashish77.github.io/myjobs
 
-### Advanced Configuration
+## Demo
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+https://drashish77.github.io/myjobs
 
-### Deployment
+## Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Mobile Responsive
+- API functionality implemented
+- Modal functionality implemented using react-modal
+- Create a new job
+- validation of various input parameters
+- Signup screen and functionality
+- login screen
+- Forget password screen
+- Reset password screen
+- Post a Job Screen
+- open application to one job
 
-### `yarn build` fails to minify
+## 🚀 About Me
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+I'm a front-end developer and improving my skills by working and learning
+in day tight chamber, So basically one day at a time.
+
+## Hi, I'm Ashish Gupta (Alex Coder)! 👋
+
+## 🔗 Links
+
+[![github](https://img.shields.io/badge/github-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/drashish77/)
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/dr_coderr)
+
+## 🛠 Skills
+
+ReactJs, Javascript, HTML, CSS...
+
+### CSS Libraries
+
+- Bootstrap
+- Tailwind
+- Context Api
+
+## Future implementation
+
+Contributions are always welcome!
+
+See `contributing.md` for ways to get started.
+
+Please adhere to this project's `code of conduct`.
+
+## Future
+
+### Duration for the project- 2.5 days only
+
+- Implementation of Pagination is still incomplete.
+- Backend is still not connected fully, so full Implementation of this is my priory.
+- using custom fetch hooks in place of fetch function
+- I've just try to implement functionality and still needs a proper documentation
+- Proper comments of code
+- Fully Implementation of DRY principle
+- Components are big and need to restructure them for maintainability
+- Optimization
