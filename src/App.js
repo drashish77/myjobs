@@ -45,7 +45,7 @@ function App(props) {
           <Route path='/reset' component={ForgetPassword} />
           <Route path='/forgetpassword' component={Reset} />
           <Route path='/admin' component={Admin} />
-          <Route path='/' exact component={Home} />
+          <Route path='/myjobs' exact component={Home} />
         </Switch>
       </nav>
     </div>

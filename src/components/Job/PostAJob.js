@@ -5,7 +5,7 @@ const PostAJob = () => {
     <div>
       {/* <div className='bg-gradient-to-r from-blue-dark to-blue-moderate lg:px-16 h-3/4'> */}
       {/* <Header /> */}
-      <Link to='/' className='ml-20 '>
+      <Link to='/myjobs' className='ml-20 '>
         <i className='fas fa-house-user mr-2 pt-5'></i>{' '}
         <span className='text-blue-lightBlue'>Home</span>
       </Link>
