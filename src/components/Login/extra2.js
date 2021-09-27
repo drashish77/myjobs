@@ -3,12 +3,9 @@ import { useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
 import routes, { BASE_URL } from '../../config/config'
 import { getApiResponse } from '../../utils/apiHandler'
-import InputRadio from './InputRadio'
 import validation from './validation'
 
 const Signup = ({ submitForm }) => {
-  const [isActive, setIsActive] = useState(false)
-  const [isActive1, setIsActive1] = useState(false)
   const history = useHistory()
   const [loading, setLoading] = useState(false)
   const [values, setValues] = useState({
@@ -92,34 +89,23 @@ const Signup = ({ submitForm }) => {
           <div className='p-2'>
             <h3 className='font-semibold text-2xl'>Signup</h3>
             <p className='mt-4'>I’m a*</p>
-            <div className='flex justify-start'>
-              {/* button will be here*/}
-              <label className='py-2 px-4 bg-blue-lightBlue text-white rounded-lg mr-4'>
+            <div className='flex'>
+              <button
+                className='button mr-4'
+                value={values.userRole}
+                onClick={() => setValues({ userRole: 1 })}
+              >
                 <i className='fas fa-user-tie mr-2'></i>
-                <span className='mr-2'>Recruiter</span>
-                <input
-                  type='radio'
-                  name='name'
-                  value={values.userRole}
-                  onClick={() => {
-                    setIsActive(true)
-                    setValues({ userRole: 1 })
-                  }}
-                />
-              </label>
-              <label className='py-2 px-4 bg-blue-lightBlue text-white rounded-lg'>
+                <span>Recruiter</span>
+              </button>
+              <button
+                className='button'
+                value={values.userRole}
+                onClick={() => setValues({ userRole: 0 })}
+              >
                 <i className='fas fa-user-graduate mr-2'></i>
-                <span className='mr-2'>Candidate</span>
-                <input
-                  type='radio'
-                  name='name'
-                  value={values.userRole}
-                  onClick={() => {
-                    setIsActive1(true)
-                    setValues({ userRole: 0 })
-                  }}
-                />
-              </label>
+                <span>Candidate</span>
+              </button>
             </div>
           </div>
           <div className='py-2'>

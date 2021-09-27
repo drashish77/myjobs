@@ -2,6 +2,8 @@ const validation = (values) => {
   let errors = {}
   if (!values.fullName) {
     errors.fullName = 'The Field is mandatory'
+  } else if (!/[a-zA-Z][a-zA-Z   ]+/.test(values.fullName)) {
+    errors.fullName = 'Name should be only in alphabets with space'
   }
   if (!values.email) {
     errors.email = 'Email is required'
