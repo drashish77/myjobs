@@ -7,20 +7,9 @@ import { getApiResponse } from '../../utils/apiHandler'
 const Login = (props) => {
   const history = useHistory()
   const [loading, setLoading] = useState(false)
-  const [email, setEmail] = useState('')
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [values, setValues] = useState({
-    email: '',
-    password: '',
-  })
-  const [errors, setErrors] = useState({})
-  const [dataIsCorrect, setDataIsCorrect] = useState(false)
-  const handleChange = (event) => {
-    setValues({
-      ...values,
-      [event.target.name]: event.target.value,
-    })
-  }
+
   const performAPICall = async () => {
     setLoading(true)
     let response
@@ -31,7 +20,7 @@ const Login = (props) => {
       let headers = {
         'Content-Type': 'application/json',
       }
-      let body = JSON.stringify({ username: email, password })
+      let body = JSON.stringify({ username, password })
 
       response = await getApiResponse(url, method, headers, body)
     } catch (error) {
@@ -44,14 +33,14 @@ const Login = (props) => {
   }
 
   const validateInput = () => {
-    if (email === '') {
+    if (username === '') {
       ;<div className='div'>Username is a required field</div>
-      errors.username = 'Username is a required field'
+      // message.error('Username is a required field')
       return false
     }
     if (password === '') {
       // ;<Message sign='error' message='Password must not be empty' />
-      // errors.=('Password must not be empty')
+      // message.error('Password must not be empty')
       return false
     } else {
       return true
@@ -62,7 +51,7 @@ const Login = (props) => {
     if (errored === true || response === null) {
       // ;<Message sign='error' message='Error Occured' />
 
-      // errors.=('Error Occured')
+      // message.error('Error Occured')
       return false
     } else if (response.success === false) {
       // ;<Message sign='error' message={response.message} />
@@ -83,10 +72,10 @@ const Login = (props) => {
         var response = await performAPICall()
         if (response !== undefined) {
           persistLogin(response.token, response.username, response.balance)
-          setEmail('')
+          setUsername('')
           setPassword('')
           // ;<Message sign='sucess' message='Successfully Login' />
-          // succes.=ss('Successfully Login')
+          // message.success('Successfully Login')
           props.history.push(routes.jobsRoute)
         }
       } catch (err) {
@@ -114,7 +103,7 @@ const Login = (props) => {
               type='text'
               className='text-md block px-3 py-2  rounded-lg w-full 
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none'
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setUsername(e.target.value)}
             />
           </div>
           <div className='py-2' x-data='{ show: true }'>

@@ -1,13 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
-import { BASE_URL } from '../../config/config'
-import { getApiResponse } from '../../utils/apiHandler'
 import validation from './JobValidation'
 
 const NewJobForm = ({ submitForm }) => {
   const history = useHistory()
-  const [loading, setLoading] = useState(false)
   const [values, setValues] = useState({
     jobTitle: '',
     description: '',
@@ -15,28 +12,6 @@ const NewJobForm = ({ submitForm }) => {
   })
   const [errors, setErrors] = useState({})
   const [dataIsCorrect, setDataIsCorrect] = useState(false)
-  const performAPICall = async () => {
-    setLoading(true)
-    let response
-    let errored = false
-    try {
-      let url = `${BASE_URL}/auth/register`
-      let method = 'POST'
-      let headers = {
-        'Content-Type': 'application/json',
-      }
-      let jobTitle = values.jobTitle
-      let description = values.description
-      let location = values.location
-      let body = JSON.stringify({ jobTitle, description, location })
-
-      response = await getApiResponse(url, method, headers, body)
-    } catch (error) {
-      errored = true
-    }
-    setLoading(false)
-    return response
-  }
 
   const handleChange = (event) => {
     setValues({
