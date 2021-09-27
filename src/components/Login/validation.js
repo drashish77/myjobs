@@ -1,11 +1,3 @@
-export const LoginValidation = (values) => {
-  let errors = {}
-  if (!values.email || !values.password) {
-    errors.error = 'Incorrect email address or password.'
-  }
-
-  return errors
-}
 const validation = (values) => {
   let errors = {}
   if (!values.fullName) {

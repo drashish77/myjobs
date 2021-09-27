@@ -14,7 +14,9 @@ const LogoutView = (props) => {
   return (
     <div className='flex h-48 flex-col justify-center items-center'>
       {/* <img src='avatar.png' alt='profile' className='profile-image'></img> */}
-      {/* <div className='header-info '>Hey {localStorage.getItem('token')},</div> */}
+      <div className='header-info '>
+        Hey {localStorage.getItem('username')},
+      </div>
       <p className='my-5'>Click the button for logout</p>
       <button className='button mx-auto' onClick={logout}>
         Logout
