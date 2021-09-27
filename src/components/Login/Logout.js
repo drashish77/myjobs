@@ -8,7 +8,6 @@ const LogoutView = (props) => {
     history.push(routes.rootRoute)
   }
   const logout = () => {
-    localStorage.removeItem('username')
     localStorage.removeItem('token')
     history.push(routes.rootRoute)
   }
@@ -17,7 +16,7 @@ const LogoutView = (props) => {
       {/* <img src='avatar.png' alt='profile' className='profile-image'></img> */}
       {/* <div className='header-info '>Hey {localStorage.getItem('token')},</div> */}
       <p className='my-5'>Click the button for logout</p>
-      <button class='button mx-auto' onClick={logout}>
+      <button className='button mx-auto' onClick={logout}>
         Logout
       </button>
     </div>

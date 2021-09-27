@@ -80,7 +80,7 @@ const PaginationTable = ({ data, renderedData }) => {
             disabled={currentPage === pages[0] ? true : false}
             onClick={handlePrevButton}
           >
-            <i class='fas fa-backward'></i>Prev
+            <i className='fas fa-backward'></i>Prev
           </button>
         </li>
         {pageDecrementBtn}
@@ -93,7 +93,7 @@ const PaginationTable = ({ data, renderedData }) => {
             onClick={handleNextButton}
           >
             Next
-            <i class='fas fa-forward'></i>
+            <i className='fas fa-forward'></i>
           </button>
         </li>
       </ul>

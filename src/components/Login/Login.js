@@ -37,7 +37,7 @@ const Login = ({ submitForm }) => {
   // console.log(result)
   const handleSubmit = (event) => {
     event.preventDefault()
-    setErrors(LoginValidation(values))
+    // setErrors(LoginValidation(values))
     setDataIsCorrect(true)
   }
   useEffect(() => {
@@ -102,19 +102,19 @@ const Login = ({ submitForm }) => {
     }
   }
 
-  const persistLogin = (token, email) => {
+  const persistLogin = (token, userRole) => {
     localStorage.setItem('token', token)
-    localStorage.setItem('email', email)
+    localStorage.setItem('userRole', userRole)
   }
 
   const login = async () => {
     try {
       var response = await performAPICall()
-      // console.log(response)
       // setResult(response)
       if (response !== undefined) {
+        console.log(response)
         // if(response.data.email!==values.email)
-        persistLogin(response.data.token, response.data.email)
+        persistLogin(response.data.token, response.data.userRole)
         setValues({ email: '', password: '' })
         // ;<Message sign='sucess' message='Successfully Login' />
         // succes.=ss('Successfully Login')

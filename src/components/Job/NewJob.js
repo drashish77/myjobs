@@ -100,7 +100,7 @@ const Jobs = () => {
                             className='button rounded-full'
                             onClick={() => setModalIsOpen(false)}
                           >
-                            <i class='fas fa-times'></i>
+                            <i className='fas fa-times'></i>
                           </button>
                         </div>
                         {/* <div className='flex justify-end items-start sticky top-10 right-0'>

@@ -8,7 +8,7 @@ export const LogoutView = (props) => {
     history.push(routes.rootRoute)
   }
   const logout = () => {
-    localStorage.removeItem('username')
+    localStorage.removeItem('userRole')
     localStorage.removeItem('token')
     history.push(routes.rootRoute)
   }
@@ -16,7 +16,7 @@ export const LogoutView = (props) => {
     <>
       <img src='avatar.png' alt='profile' className='profile-image'></img>
       <div className='header-info'>{localStorage.getItem('username')}</div>
-      <button class='btn' onClick={logout}>
+      <button className='btn' onClick={logout}>
         Logout
       </button>
     </>

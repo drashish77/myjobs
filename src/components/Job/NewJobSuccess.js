@@ -11,11 +11,11 @@ const NewJobSuccess = () => {
       </div>
       <div className='flex justify-center items-center my-2'>
         <Link to='/myjobs' className='mr-20'>
-          <i class='fas fa-house-user mr-2'></i>{' '}
+          <i className='fas fa-house-user mr-2'></i>{' '}
           <span className='text-blue-lightBlue'>Go Home</span>
         </Link>
         <Link to='/jobs' className=''>
-          <i class='fas fa-sign-in-alt mr-2'></i>
+          <i className='fas fa-sign-in-alt mr-2'></i>
           <span className='text-blue-lightBlue'>All Jobs</span>
         </Link>
       </div>
