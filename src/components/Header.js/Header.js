@@ -15,6 +15,11 @@ const Header = (props) => {
   const login = () => {
     history.push(routes.loginRoute)
   }
+
+  const logout = () => {
+    localStorage.removeItem('token')
+    history.push(routes.rootRoute)
+  }
   return (
     <div>
       <div className='flex justify-between py-5 px-12 lg:px-20  items-center '>
@@ -38,13 +43,11 @@ const Header = (props) => {
               <p className='text-sm'>Admin</p>
             </div>
           </Link>
-          {localStorage.getItem('username') ? (
-            <Link to='/logout'>
-              <div className='ml-4'>
-                <i className='fas fa-user-injured'></i>
-                <p className='text-sm'>Logout</p>
-              </div>
-            </Link>
+          {localStorage.getItem('token') ? (
+            <div className='ml-4' onClick={logout}>
+              <i className='fas fa-user-injured'></i>
+              <p className='text-sm'>Logout</p>
+            </div>
           ) : (
             <>
               <Link to='/login'>

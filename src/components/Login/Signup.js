@@ -1,10 +1,16 @@
 import { useState, useEffect } from 'react'
 import { useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
+import routes, { BASE_URL } from '../../config/config'
+import { getApiResponse } from '../../utils/apiHandler'
 import validation from './validation'
 
 const Signup = ({ submitForm }) => {
+  const [isActive, setIsActive] = useState(false)
+  const [isActive1, setIsActive1] = useState(false)
   const history = useHistory()
+  const [loading, setLoading] = useState(false)
+  const [userRole, setUserRole] = useState(0)
   const [values, setValues] = useState({
     fullName: '',
     email: '',
@@ -12,6 +18,9 @@ const Signup = ({ submitForm }) => {
     confirmPassword: '',
     skills: '',
   })
+  // const userRoleHandler = () => {
+  //   setValues({...values,userRole})
+  // }
   const [errors, setErrors] = useState({})
   const [dataIsCorrect, setDataIsCorrect] = useState(false)
 
@@ -31,7 +40,49 @@ const Signup = ({ submitForm }) => {
       submitForm(true)
     }
   }, [errors])
+  const performAPICall = async () => {
+    setLoading(true)
+    let response
+    let errored = false
+    try {
+      let url = `${BASE_URL}/auth/register`
+      let method = 'POST'
+      let headers = {
+        'Content-Type': 'application/json',
+      }
+      const name = values.fullName
+      const email = values.email
+      const password = values.password
+      const confirmPassword = values.confirmPassword
+      const skills = values.skills
 
+      let body = JSON.stringify({
+        email,
+        userRole,
+        password,
+        confirmPassword,
+        name,
+        skills,
+      })
+
+      response = await getApiResponse(url, method, headers, body)
+    } catch (error) {
+      errored = true
+    }
+    setLoading(false)
+    return response
+  }
+  const signup = async () => {
+    try {
+      var response = await performAPICall()
+      if (response !== undefined) {
+        setValues('')
+        // history.push(routes.jobsRoute)
+      }
+    } catch (err) {
+      console.log(err)
+    }
+  }
   return (
     <div className='flex justify-center pt-20 z-50'>
       <form
@@ -42,15 +93,28 @@ const Signup = ({ submitForm }) => {
           <div className='p-2'>
             <h3 className='font-semibold text-2xl'>Signup</h3>
             <p className='mt-4'>I’m a*</p>
-            <div className='flex'>
-              <button className='button mr-4'>
+            <div className='flex justify-start'>
+              {/* button will be here*/}
+              <label className='py-2 px-4 bg-blue-lightBlue text-white rounded-lg mr-4'>
                 <i className='fas fa-user-tie mr-2'></i>
-                <span>Recruiter</span>
-              </button>
-              <button className='button'>
+                <span className='mr-2'>Recruiter</span>
+                <input
+                  type='radio'
+                  name='name'
+                  value={userRole}
+                  onClick={() => setUserRole(0)}
+                />
+              </label>
+              <label className='py-2 px-4 bg-blue-lightBlue text-white rounded-lg'>
                 <i className='fas fa-user-graduate mr-2'></i>
-                <span>Candidate</span>
-              </button>
+                <span className='mr-2'>Candidate</span>
+                <input
+                  type='radio'
+                  name='name'
+                  value={userRole}
+                  onClick={() => setUserRole(1)}
+                />
+              </label>
             </div>
           </div>
           <div className='py-2'>
@@ -145,7 +209,9 @@ const Signup = ({ submitForm }) => {
               onChange={handleChange}
             />
           </div>
-          <button className='button mx-auto'>Signup</button>
+          <button className='button mx-auto' onClick={signup}>
+            Signup
+          </button>
         </div>
         <div className='text-blue-dark text-center mt-8'>
           <span className=''>Have an account?</span>

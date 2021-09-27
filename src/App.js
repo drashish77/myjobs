@@ -20,6 +20,7 @@ import SingleJobDetail from './components/Job/SingleJobDetail'
 import PostAJob from './components/Job/PostAJob'
 import JobForm from './components/Job/JobForm'
 import Form from './components/Login/Form'
+import LoginForm from './components/Login/LoginForm'
 
 function App(props) {
   const location = useLocation()
@@ -34,7 +35,8 @@ function App(props) {
         <Header />
         <div className='newBorder'></div>
         <Switch>
-          <Route path='/login' component={Login} />
+          {/* <Route path='/login' component={Login} /> */}
+          <Route path='/login' component={LoginForm} />
           <Route path='/logout' component={Logout} />
           <Route path='/register' component={Form} />
           {/* <Route path='/jobs/:id' component={SingleJobDetail} /> */}

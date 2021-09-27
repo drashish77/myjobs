@@ -3,10 +3,9 @@ import PostAJob from '../Job/PostAJob'
 
 const Admin = () => {
   const token = localStorage.getItem('token')
-  const userRole = localStorage.getItem('userRole')
-  console.log(userRole)
-  //userRole
-  //recruiter=0 candidate=1
+  // const userRole = localStorage.getItem('userRole')
+  // console.log(userRole)
+  //User role is 0 for Recruiter and 1 for Candidate.
   const renderText = (
     <div className=' '>
       <div className='flex justify-center items-center my-2'>
