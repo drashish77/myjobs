@@ -38,7 +38,7 @@ const Header = (props) => {
               <p className='text-sm'>Admin</p>
             </div>
           </Link>
-          {localStorage.getItem('username') ? (
+          {localStorage.getItem('token') ? (
             <Link to='/logout'>
               <div className='ml-4'>
                 <i className='fas fa-user-injured'></i>
