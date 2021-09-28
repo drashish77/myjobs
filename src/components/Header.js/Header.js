@@ -26,6 +26,7 @@ const Header = (props) => {
     localStorage.removeItem('token')
     localStorage.removeItem('userRole')
     localStorage.removeItem('email')
+    localStorage.removeItem('name')
     localStorage.removeItem('resetToken')
     history.push(routes.rootRoute)
   }
@@ -43,9 +44,15 @@ const Header = (props) => {
           className={
             isActive
               ? 'flex justify-center shadow items-center text-center  Navbar__Link-toggle'
-              : 'text-sm w-56 justify-evenly items-center text-center  hidden md:flex'
+              : 'text-sm w-56 justify-end items-center text-center  hidden md:flex'
           }
         >
+          {localStorage.getItem('name') ? (
+            <div className='bg-blue-ligthtest text-blue-moderate h-12 w-12 text-2xl uppercase text-center font-medium flex items-center justify-center rounded-full '>
+              {localStorage.getItem('name')[0]}
+            </div>
+          ) : null}
+
           <div className='ml-4' onClick={admin}>
             <i className='fas fa-user-cog'></i>
             <p className='text-sm'>Admin</p>
@@ -70,7 +77,8 @@ const Header = (props) => {
             </>
           )}
         </div>
-        <div className='block md:hidden' onClick={toggleHeader}>
+
+        <div className='flex items-center md:hidden' onClick={toggleHeader}>
           <i className='fas fa-bars'></i>
         </div>
       </div>

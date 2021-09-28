@@ -31,7 +31,6 @@ const ForgetPassword = ({ submitForm }) => {
       errored = true
     }
     localStorage.setItem('resetToken', response.data.token)
-    localStorage.setItem('email', response.data.email)
     setResult(response.data)
     setLoading(false)
     return response

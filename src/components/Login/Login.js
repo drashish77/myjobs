@@ -102,9 +102,11 @@ const Login = ({ submitForm }) => {
     }
   }
 
-  const persistLogin = (token, userRole) => {
+  const persistLogin = (token, userRole, email, name) => {
     localStorage.setItem('token', token)
     localStorage.setItem('userRole', userRole)
+    localStorage.setItem('email', email)
+    localStorage.setItem('name', name)
   }
 
   const login = async () => {
@@ -114,7 +116,12 @@ const Login = ({ submitForm }) => {
       if (response !== undefined) {
         console.log(response)
         // if(response.data.email!==values.email)
-        persistLogin(response.data.token, response.data.userRole)
+        persistLogin(
+          response.data.token,
+          response.data.userRole,
+          response.data.email,
+          response.data.name
+        )
         setValues({ email: '', password: '' })
         // ;<Message sign='sucess' message='Successfully Login' />
         // succes.=ss('Successfully Login')

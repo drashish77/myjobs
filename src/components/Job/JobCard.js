@@ -8,25 +8,27 @@ const JobCard = ({
 }) => {
   return (
     <div
-      className='border px-5 py-5 text-left rounded-lg w-64 md:w-96 bg-white m-2'
+      className='border px-5 py-5 text-left rounded-lg w-72 bg-white m-2'
       key={job.id}
     >
       <h3 className='my-2 text-xl text-blue-moderate capitalize font-semibold overflow-ellipsis overflow-hidden'>
         {job.title}
       </h3>
-      <div className=''>
-        <p className='text-blue-moderate multi-line-truncate'>
+      <div className='' style={{ minHeight: '50px' }}>
+        <p className='text-blue-moderate multi-line-truncate mb-1'>
           {job.description}
         </p>
       </div>
-      <div className='flex flex-col lg:flex-row justify-between items-center my-2'>
+      <div className='flex flex-row justify-between items-center my-2'>
         <div className='text-lg mb-5 lg:mb-0'>
           <i className='fas fa-map-marker-alt text-blue-lightBlue'></i>
-          <span className='text-blue-moderate  ml-2'>{job.location}</span>
+          <span className='text-blue-moderate capitalize text-sm ml-2'>
+            {job.location}
+          </span>
         </div>
 
         <button
-          className='px-3 py-2 bg-blue-lighter text-blue-moderate rounded'
+          className='px-2 py-1 text-sm bg-blue-lighter text-blue-moderate rounded'
           onClick={donationHandler}
         >
           View Applications

@@ -52,9 +52,11 @@ const ResetPassword = ({ submitForm }) => {
   const reset = async () => {
     try {
       var response = await performAPICall()
+
       if (response !== undefined) {
         setEmail('')
         history.push(routes.loginRoute)
+        localStorage.removeItem('resetToken')
       }
     } catch (err) {
       console.log(err)
