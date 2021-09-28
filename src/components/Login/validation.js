@@ -1,6 +1,13 @@
-export const ResetValidation = (result, values) => {
-  console.log(result)
+export const NewJobValidation = (values) => {
   console.log(values)
+  const { jobTitle, description, location } = values
+  let errors = {}
+  if (jobTitle === '' || description === '' || location === '') {
+    errors.error = 'All fields are mandatory.'
+  }
+  return errors
+}
+export const ResetValidation = (result, values) => {
   let errors = {}
   if (values.email === '') {
     errors.error = 'The Field should not be empty.'
@@ -14,10 +21,7 @@ export const LoginValidation = (result, values) => {
   let errors = {}
   if (values.email === '' || !values.password === '') {
     errors.error = 'The Field/s should not be empty.'
-  } else if (
-    values.email !== result.email ||
-    values.password !== result.password
-  ) {
+  } else if (values.email !== result.email) {
     errors.error = 'Incorrect email address or password.'
   }
 

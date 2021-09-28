@@ -14,8 +14,8 @@ const JobCard = ({
       <h3 className='my-2 text-xl text-blue-moderate capitalize font-semibold overflow-ellipsis overflow-hidden'>
         {job.title}
       </h3>
-      <div className='h-20'>
-        <p className='text-blue-moderate overflow-ellipsis overflow-hidden'>
+      <div className=''>
+        <p className='text-blue-moderate multi-line-truncate'>
           {job.description}
         </p>
       </div>

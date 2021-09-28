@@ -1,10 +1,16 @@
 import { useState, useEffect } from 'react'
 import { useHistory } from 'react-router'
+
 import { Link } from 'react-router-dom'
+import routes, { BASE_URL } from '../../config/config'
+import { getApiResponse } from '../../utils/apiHandler'
+import { NewJobValidation } from '../Login/validation'
 import validation from './JobValidation'
 
 const NewJobForm = ({ submitForm }) => {
   const history = useHistory()
+  const [loading, setLoading] = useState(false)
+
   const [values, setValues] = useState({
     jobTitle: '',
     description: '',
@@ -21,7 +27,7 @@ const NewJobForm = ({ submitForm }) => {
   }
   const handleSubmit = (event) => {
     event.preventDefault()
-    setErrors(validation(values))
+    setErrors(NewJobValidation(values))
     setDataIsCorrect(true)
   }
   useEffect(() => {
@@ -29,7 +35,43 @@ const NewJobForm = ({ submitForm }) => {
       submitForm(true)
     }
   }, [errors])
+  const performAPICall = async () => {
+    setLoading(true)
+    let response
+    let errored = false
+    try {
+      const token = localStorage.getItem('token')
+      let url = `${BASE_URL}${routes.jobsRoute}`
+      let method = 'POST'
+      let headers = {
+        'Content-Type': 'application/json',
+        Authorization: token,
+      }
 
+      const title = values.jobTitle
+      const description = values.description
+      const location = values.location
+      let body = JSON.stringify({ title, description, location })
+      response = await getApiResponse(url, method, headers, body)
+    } catch (error) {
+      errored = true
+    }
+    setLoading(false)
+    return response
+  }
+  //on submit of new job application, this function will call for the API and send the required value.
+  const jobCreated = async () => {
+    try {
+      var response = await performAPICall()
+      // localStorage.setItem('jobId', response.data.id)
+      if (response !== undefined) {
+        setValues(...values)
+        // history.push(routes.jobsRoute)
+      }
+    } catch (err) {
+      console.log(err)
+    }
+  }
   return (
     <div className='flex justify-center pt-20 z-50'>
       <form
@@ -56,7 +98,7 @@ const NewJobForm = ({ submitForm }) => {
           </div>
           <div className='py-2'>
             <span className='px-1 text-sm text-blue-dark font-semibold'>
-              Description**
+              Description*
             </span>
             <textarea
               name='description'
@@ -82,9 +124,12 @@ const NewJobForm = ({ submitForm }) => {
               value={values.location}
               onChange={handleChange}
             />
+            {errors.error && <p className='error'>{errors.error}</p>}
           </div>
           {errors.jobTitle && <p className='error'>{errors.jobTitle}</p>}
-          <button className='button mx-auto'>POST</button>
+          <button className='button mx-auto' onClick={jobCreated}>
+            POST
+          </button>
         </div>
       </form>
     </div>

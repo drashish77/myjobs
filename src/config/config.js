@@ -11,9 +11,9 @@ const routes = {
   changePassword: '/auth/resetpassword',
   forgetpassword: '/auth/forgetpassword',
   //job router
-  jobsRoute: '/jobs?',
+  jobsRoute: '/jobs',
   getOneJobDetails: '/jobs/:id',
-  getAllJobDetails: '/jobs?',
+  // getAllJobDetails: '/jobs?',
   deleteJob: '/jobs/:id',
   //candidates
   candidates: '/candidates/jobs',

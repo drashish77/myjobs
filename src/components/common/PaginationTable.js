@@ -1,15 +1,13 @@
 import { useState } from 'react'
 
 const renderedData2 = (jobs) => {
- return (
-  <ul className="">
-   {jobs.map((job, index) => {
-    return (
-     <li className=""></li>
-    )
-   })}
-  </ul>
- )
+  return (
+    <ul className=''>
+      {jobs.map((job, index) => {
+        return <li className=''></li>
+      })}
+    </ul>
+  )
 }
 
 const PaginationTable = ({ data, renderedData }) => {
@@ -76,11 +74,11 @@ const PaginationTable = ({ data, renderedData }) => {
       <ul className='pageNumbers'>
         <li>
           <button
-            className='button'
+            className=''
             disabled={currentPage === pages[0] ? true : false}
             onClick={handlePrevButton}
           >
-            <i className='fas fa-backward'></i>Prev
+            <i className='fas fa-backward mr-2'></i>Prev
           </button>
         </li>
         {pageDecrementBtn}
@@ -88,12 +86,12 @@ const PaginationTable = ({ data, renderedData }) => {
         {pageIncrementBtn}
         <li>
           <button
-            className='button'
+            className=''
             disabled={currentPage === pages[pages.length - 1] ? true : false}
             onClick={handleNextButton}
           >
             Next
-            <i className='fas fa-forward'></i>
+            <i className='fas fa-forward ml-2'></i>
           </button>
         </li>
       </ul>

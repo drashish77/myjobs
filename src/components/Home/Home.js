@@ -1,7 +1,12 @@
-import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
+import routes from '../../config/config'
 import Header from '../Header.js/Header'
 
 const Home = () => {
+  const history = useHistory()
+  const jobs = () => {
+    history.push(routes.jobsRoute)
+  }
   return (
     <div className='home'>
       <div className='bg-gradient-to-r from-blue-dark to-blue-moderate lg:px-16 h-3/4'>
@@ -16,11 +21,13 @@ const Home = () => {
                 My<span className='text-blue-lightBlue'>Jobs</span>
               </h2>
             </div>
-            <Link to='/jobs'>
-              <button className=' py-2 lg:py-3 lg:px-8  font-semibold rounded px-5 bg-blue-lightBlue mt-8 mb-12 lg:mt-12 lg:mb-20 hover:bg-blue-lighter'>
-                Get Started
-              </button>
-            </Link>
+
+            <button
+              className=' py-2 lg:py-3 lg:px-8  font-semibold rounded px-5 bg-blue-lightBlue mt-8 mb-12 lg:mt-12 lg:mb-20 hover:bg-blue-lighter'
+              onClick={jobs}
+            >
+              Get Started
+            </button>
           </div>
         </div>
       </div>

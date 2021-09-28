@@ -39,7 +39,7 @@ const Jobs = () => {
   const renderedData = () => {
     return (
       <div className='lg:mx-24 mt-20 mb-12'>
-        <h3 className='mx-5 my-5 text-white font-semibold text-2xl'>
+        <h3 className='mx-5 my-5 text-center lg:text-left text-white font-semibold text-2xl'>
           Jobs posted by you
         </h3>
         <div className='flex flex-col flex-wrap items-center justify-evenly lg:flex-row pb-20'>

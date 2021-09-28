@@ -54,12 +54,17 @@ body {
 .pageNumbers {
   list-style: none;
   display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
 }
 .pageNumbers li {
   padding: 10px;
   margin: 2px;
   border: 1px solid #000;
+  background: #43afff;
+  color: white;
   cursor: pointer;
+  border-radius: 5px;
 }
 /* .pageNumbers li.active{
   background: white;
@@ -67,3 +72,17 @@ body {
 
   
 } */
+@media screen and (max-width: 500px) {
+  .pageNumbers li {
+    padding: 5px;
+    margin: 2px;
+    border: 1px solid #000;
+    cursor: pointer;
+  }
+}
+.multi-line-truncate {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}

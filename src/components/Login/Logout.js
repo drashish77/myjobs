@@ -4,11 +4,10 @@ import { useHistory } from 'react-router-dom'
 import routes from '../../config/config'
 const LogoutView = (props) => {
   const history = useHistory()
-  const root = () => {
-    history.push(routes.rootRoute)
-  }
+
   const logout = () => {
     localStorage.removeItem('token')
+    localStorage.removeItem('userRole')
     history.push(routes.rootRoute)
   }
   return (

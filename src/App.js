@@ -44,12 +44,12 @@ function App(props) {
           {/* <Route path='/jobs/:id' component={SingleJobDetail} /> */}
           <Route path='/jobs/new-job' component={PostAJob} exact />
           <Route path='/jobs/new-job/create' component={JobForm} exact />
-          <Route path={routes.getAllJobDetails} component={Jobs} />
+          <Route path={routes.jobsRoute} component={Jobs} exact />
           <Route path='/candidates' component={Candidate} />
           <Route path={routes.changePassword} component={ForgetPasswordForm} />
           <Route path={routes.forgetpassword} component={Reset} />
-          <Route path={routes.admin} component={Admin} />
-          <Route path='/myjobs' exact component={Home} />
+          <Route path={routes.admin} component={Admin} exact />
+          <Route path={routes.rootRoute} exact component={Home} />
         </Switch>
       </nav>
     </div>

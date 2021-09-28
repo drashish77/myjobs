@@ -1,14 +1,22 @@
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+import routes from '../../config/config'
 
 const PostAJob = () => {
+  const history = useHistory()
+  const home = () => {
+    history.push(routes.rootRoute)
+  }
+  const newjob = () => {
+    history.push(routes.jobsRoute)
+  }
   return (
     <div>
       {/* <div className='bg-gradient-to-r from-blue-dark to-blue-moderate lg:px-16 h-3/4'> */}
       {/* <Header /> */}
-      <Link to='/myjobs' className='ml-20 '>
-        <i className='fas fa-house-user mr-2 pt-5'></i>{' '}
+      <div onClick={home} className='ml-20 '>
+        <i className='fas fa-house-user mr-2 pt-5'></i>
         <span className='text-blue-lightBlue'>Home</span>
-      </Link>
+      </div>
       <div className=''>
         <div className='mx-10 md:mx-16 lg:mx-24 my-12 lg:my-20 text-white'>
           <div className='flex items-center md:block logo text-2xl'>

@@ -4,6 +4,7 @@ import { useState } from 'react'
 
 const Header = (props) => {
   const [isActive, setIsActive] = useState(false)
+
   const toggleHeader = () => {
     setIsActive(!isActive)
   }
@@ -23,6 +24,9 @@ const Header = (props) => {
 
   const logout = () => {
     localStorage.removeItem('token')
+    localStorage.removeItem('userRole')
+    localStorage.removeItem('email')
+    localStorage.removeItem('resetToken')
     history.push(routes.rootRoute)
   }
   return (
