@@ -37,7 +37,7 @@ const Login = ({ submitForm }) => {
   // console.log(result)
   const handleSubmit = (event) => {
     event.preventDefault()
-    // setErrors(LoginValidation(values))
+    setErrors(LoginValidation(result, values))
     setDataIsCorrect(true)
   }
   useEffect(() => {
@@ -50,7 +50,7 @@ const Login = ({ submitForm }) => {
     let response
     let errored = false
     try {
-      let url = `${BASE_URL}/auth/login`
+      let url = `${BASE_URL}${routes.loginRoute}`
       let method = 'POST'
       let headers = {
         'Content-Type': 'application/json',
@@ -110,7 +110,7 @@ const Login = ({ submitForm }) => {
   const login = async () => {
     try {
       var response = await performAPICall()
-      // setResult(response)
+      setResult(response)
       if (response !== undefined) {
         console.log(response)
         // if(response.data.email!==values.email)
@@ -140,7 +140,7 @@ const Login = ({ submitForm }) => {
             <input
               name='email'
               placeholder='Enter your email'
-              type='text'
+              type='email'
               className='text-md block px-3 py-2  rounded-lg w-full 
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none'
               onChange={handleChange}
@@ -171,7 +171,7 @@ const Login = ({ submitForm }) => {
           <div className='flex justify-between'>
             <label className='block text-gray-500 font-bold my-4'>
               <Link
-                to='/reset'
+                to={routes.changePassword}
                 className='cursor-pointer tracking-tighter text-blue-lightBlue no-underline border-b-2'
               >
                 <span>Reset your password?</span>
@@ -179,7 +179,7 @@ const Login = ({ submitForm }) => {
             </label>
             <label className='block text-gray-500 font-bold my-4'>
               <Link
-                to='/forgetpassword'
+                to={routes.forgetpassword}
                 className='cursor-pointer tracking-tighter text-blue-lightBlue no-underline border-b-2'
               >
                 <span>Forgot your password?</span>

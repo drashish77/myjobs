@@ -1,3 +1,28 @@
+export const ResetValidation = (result, values) => {
+  console.log(result)
+  console.log(values)
+  let errors = {}
+  if (values.email === '') {
+    errors.error = 'The Field should not be empty.'
+  } else if (values.email !== result.email) {
+    errors.error = 'The email address is not registered.'
+  }
+
+  return errors
+}
+export const LoginValidation = (result, values) => {
+  let errors = {}
+  if (values.email === '' || !values.password === '') {
+    errors.error = 'The Field/s should not be empty.'
+  } else if (
+    values.email !== result.email ||
+    values.password !== result.password
+  ) {
+    errors.error = 'Incorrect email address or password.'
+  }
+
+  return errors
+}
 const validation = (values) => {
   let errors = {}
   if (!values.fullName) {

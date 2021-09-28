@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import routes from '../../config/config'
 import { useHistory } from 'react-router-dom'
 import { useState } from 'react'
@@ -14,6 +13,12 @@ const Header = (props) => {
   }
   const login = () => {
     history.push(routes.loginRoute)
+  }
+  const admin = () => {
+    history.push(routes.admin)
+  }
+  const signup = () => {
+    history.push(routes.registerRoute)
   }
 
   const logout = () => {
@@ -37,12 +42,11 @@ const Header = (props) => {
               : 'text-sm w-56 justify-evenly items-center text-center  hidden md:flex'
           }
         >
-          <Link to='/admin'>
-            <div className='ml-4'>
-              <i className='fas fa-user-cog'></i>
-              <p className='text-sm'>Admin</p>
-            </div>
-          </Link>
+          <div className='ml-4' onClick={admin}>
+            <i className='fas fa-user-cog'></i>
+            <p className='text-sm'>Admin</p>
+          </div>
+
           {localStorage.getItem('token') ? (
             <div className='ml-4' onClick={logout}>
               <i className='fas fa-user-injured'></i>
@@ -50,18 +54,15 @@ const Header = (props) => {
             </div>
           ) : (
             <>
-              <Link to='/login'>
-                <div className='ml-4'>
-                  <i className='fas fa-sign-in-alt'></i>
-                  <p className='text-sm'>Login</p>
-                </div>
-              </Link>
-              <Link to='/register'>
-                <div className='ml-4'>
-                  <i className='fas fa-user-plus'></i>
-                  <p className='text-sm'>Signup</p>
-                </div>
-              </Link>
+              <div className='ml-4' onClick={login}>
+                <i className='fas fa-sign-in-alt'></i>
+                <p className='text-sm'>Login</p>
+              </div>
+
+              <div className='ml-4' onClick={signup}>
+                <i className='fas fa-user-plus'></i>
+                <p className='text-sm'>Signup</p>
+              </div>
             </>
           )}
         </div>

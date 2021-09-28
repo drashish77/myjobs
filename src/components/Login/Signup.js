@@ -45,7 +45,7 @@ const Signup = ({ submitForm }) => {
     let response
     let errored = false
     try {
-      let url = `${BASE_URL}/auth/register`
+      let url = `${BASE_URL}${routes.registerRoute}`
       let method = 'POST'
       let headers = {
         'Content-Type': 'application/json',
@@ -140,7 +140,7 @@ const Signup = ({ submitForm }) => {
             <input
               name='email'
               placeholder='Enter your email'
-              type='text'
+              type='email'
               className='text-md block px-3 py-2  rounded-lg w-full 
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none'
               value={values.email}
@@ -150,7 +150,6 @@ const Signup = ({ submitForm }) => {
             {errors.email && <p className='error'>{errors.email}</p>}
           </div>
           <div className='flex justify-between'>
-            {' '}
             <div className='py-2'>
               <span className='px-1 text-sm text-blue-dark font-semibold'>
                 New Password*
@@ -215,7 +214,7 @@ const Signup = ({ submitForm }) => {
         </div>
         <div className='text-blue-dark text-center mt-8'>
           <span className=''>Have an account?</span>
-          <Link to='/login'>
+          <Link to={routes.loginRoute}>
             <span className='text-blue-lightBlue'>Login</span>
           </Link>
         </div>

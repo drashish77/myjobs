@@ -6,9 +6,10 @@ const routes = {
   loginRoute: '/auth/login',
   logoutRoute: '/auth/logout',
   registerRoute: '/auth/register',
-  getPasswordResetToken: '/auth/resetpassword?email=sharad@gmail.com',
+  getPasswordResetToken: '/auth/resetpassword?/:email=sharad@gmail.com',
   verifyPasswordToken: '/auth/resetpassword/:token',
   changePassword: '/auth/resetpassword',
+  forgetpassword: '/auth/forgetpassword',
   //job router
   jobsRoute: '/jobs?',
   getOneJobDetails: '/jobs/:id',
@@ -22,5 +23,6 @@ const routes = {
   getPostedJobs: '/recruiters/jobs',
   getOneJobCandidates: '/recruiters/jobs/:id',
   thanksRoute: '/thanks',
+  admin: '/admin',
 }
 export default routes
