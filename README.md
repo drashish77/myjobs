@@ -142,7 +142,7 @@ Please adhere to this project's `code of conduct`.
 
 ## Future
 
-### Duration for the project- 2.5 days only
+### Duration for the project- 4.5 days only
 
 - I've just try to implement functionality and still needs a proper documentation
 - Proper comments of code
