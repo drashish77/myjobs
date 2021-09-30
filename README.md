@@ -72,17 +72,45 @@ https://drashish77.github.io/myjobs
 
 ## Features
 
-- Mobile Responsive
-- API functionality implemented
+### Api Implementation
+
+### Api Implementation and functionality
+
+- Sign up/login/logout/forget password and reset password API implemented
+- Post a Job Api Implementation
+- View a list a candidates who applied for previously posted job
 - Modal functionality implemented using react-modal
 - Create a new job
+
+- Sign up screen and functionality
+
+### validation
+
 - validation of various input parameters
-- Signup screen and functionality
+
+### mobile first responsive website
+
+- Mobile Responsive
+
+### view layers for all the components
+
 - login screen
 - Forget password screen
 - Reset password screen
 - Post a Job Screen
 - open application to one job
+
+### Pagination for job
+
+- pagination implementation of all job page is completed using simple react
+
+### Truncation of card description
+
+- Truncation of card description if more than 2 lines are there
+
+### Modularity and reusability
+
+- Created some common component (input button) and reused them
 
 ## 🚀 About Me
 
@@ -94,7 +122,6 @@ in day tight chamber, So basically one day at a time.
 ## 🔗 Links
 
 [![github](https://img.shields.io/badge/github-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/drashish77/)
-[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/dr_coderr)
 
 ## 🛠 Skills
 
@@ -104,7 +131,6 @@ ReactJs, Javascript, HTML, CSS...
 
 - Bootstrap
 - Tailwind
-- Context Api
 
 ## Future implementation
 
@@ -118,11 +144,8 @@ Please adhere to this project's `code of conduct`.
 
 ### Duration for the project- 2.5 days only
 
-- Implementation of Pagination is still incomplete.
-- Backend is still not connected fully, so full Implementation of this is my priory.
-- using custom fetch hooks in place of fetch function
 - I've just try to implement functionality and still needs a proper documentation
 - Proper comments of code
 - Fully Implementation of DRY principle
-- Components are big and need to restructure them for maintainability
+- Components are big and need to refractor for maintainability
 - Optimization
